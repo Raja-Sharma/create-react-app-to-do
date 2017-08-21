@@ -12,15 +12,39 @@ class App extends Component {
         "buy gas",
         "go to bank",
         "pick up dry cleaning"
-      ]
+      ],
+      input: ''
     }
+
+    this.handleFormSubmit = this.handleFormSubmit.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
+  }
+
+  handleInputChange(event) {
+    this.setState({ input: event.target.value })
+  }
+
+  handleFormSubmit(event) {
+    event.preventDefault()
+    this.setState({ items: [this.state.input].concat(this.state.items) })
+    this.setState({ input: '' })
   }
 
   render() {
     return (
       <div>
+      <div>
         <List items={this.state.items}/>
       </div>
+      <form onSubmit={this.handleFormSubmit}>
+        <input
+          placeholder="Enter new to do item"
+          value={this.state.input}
+          onChange={this.handleInputChange}
+        />
+        <input value="Add" type="submit" />
+      </form>
+    </div>
     )
   }
 }
