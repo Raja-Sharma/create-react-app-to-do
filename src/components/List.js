@@ -11,7 +11,9 @@ export default class List extends Component {
     return (
       <div>
         <h3>To Do List</h3>
-        {this.renderList(this.props.items)}
+        <ul>
+          {this.renderList(this.props.items)}
+        </ul>
       </div>
 
     )
