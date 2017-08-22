@@ -1,1 +1,1 @@
-Simple todo list app made with create-react-app
+Simple todo list made with create-react-app
